@@ -1,6 +1,14 @@
 const Project = require('../Models/Project');
 const Errors = require('../errors/Errors');
 
+exports.getProjects = (req, res, next) => {
+    Project.find({})
+    .then(resp => res.json(resp))
+    .catch(err => {
+        next(new Errors.InternalServerError());
+    });
+}
+
 exports.createProject = (req, res, next) => {
     Project.create(req.body)
     .then(resp => res.json(resp))
