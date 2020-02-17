@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
-var test = require('../controllers/test');
+var project = require('../controllers/project');
 
-router.get("/", test.testFunction);
+router.post("/", project.createProject);
 
 module.exports = router;
